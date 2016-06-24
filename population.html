@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>India</title>
+    <link href="./build/nv.d3.css" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="./materialize/css/materialize.min.css"  media="screen,projection"/>
+    <style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Year', 'India', 'China', 'World'],
+         ['2009',  1160813000,      1338612968,        6786743939],
+         ['2012',  1208116000,      1366205049,        7028369002],
+         ['2015',  1254019000,      1393417233,        7269526256],
+         ['2020',  1326155000,      1430532735,        7659291953],
+         ['2025',  1388994000,      1453123817,        8027490191],
+	 ['2050',  1807878574,      1424161948,        9538988263]
+      ]);
+
+    var options = {
+      title : 'Predicted Population of India vs China vs World ',
+      vAxis: {title: 'Population'},
+      hAxis: {title: 'Year'},
+      seriesType: 'bars',
+      series: {5: {type: 'line'}}
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>
+
+
+
+
+  </head>
+  <body>
+<div class="navbar-fixed">
+
+  <nav style="background-color:#008080;">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">India</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	<li><a href="#">Population</a></li>
+        <li><a href="#">Health</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Drugs</a></li>
+      </ul>
+      </ul>
+    </div>
+  </nav>
+</div>
+<marquee behavior="scroll" direction="left" style="position:absolute; top;40%; font-size:30px;">Collecting more data</marquee>
+    <div id="chart_div" style="position:absolute; top:30%; left:20%; width: 60%; height: 70%;"></div>
+  </body>
+</html>
+
